@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "tailwind-init": "node node_modules/tailwindcss/lib/cli.js init -p"
+    "tailwind-init": "node node_modules/tailwindcss/lib/cli.js init -p",
+    "vercel-build" : "npm i rollup@2.79.1 && npm run build"
   },
   "dependencies": {
     "react": "^19.1.1",
