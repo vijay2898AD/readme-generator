@@ -328,14 +328,14 @@ ${customContent}
             transform: scale(1.005);
         }
       `}</style>
-      <div className="w-full max-w-7xl mx-auto rounded-xl shadow-2xl bg-[#037764] p-8 md:p-12 transform transition-all duration-300 hover:scale-[1.005]">
+      <div className="w-full max-w-7xl mx-auto rounded-xl shadow-2xl bg-[#037764] px-4 py-8 md:p-12 transform transition-all duration-300 hover:scale-[1.005]">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-[#CCFF00]">README Generator</h1>
           <p className="mt-2 text-lg text-[#E0E0E0]">Effortlessly create professional README files for your projects.</p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8">
           {/* Input Section */}
-          <div className="md:w-1/2 p-6 rounded-xl bg-[#025a4d] shadow-inner">
+          <div className="md:w-1/2 p-4 md:p-6 rounded-xl bg-[#025a4d] shadow-inner">
             <h2 className="text-2xl font-bold mb-6 text-white">Project Details</h2>
             {activeSections.map(sectionId => {
               const predefinedSection = allSections.find(s => s.id === sectionId);
