@@ -514,6 +514,12 @@ ${customContent}
           }}
         />
       )}
+      <footer className="mt-8 text-center text-sm text-[white]">
+          &copy; {new Date().getFullYear()} README Generator. All rights reserved.
+        </footer>
+        <footer className="mt-2 text-center text-sm text-[#00ffef]">
+          Built with ❤️ by Vijay
+        </footer>
     </div>
   );
 };
