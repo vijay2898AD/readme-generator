@@ -473,7 +473,7 @@ ${customContent}
         </div>
         <div className="prose">
           <p className="text-[#E3Eff0]">
-            A <b className='text-white'>README</b> file (usually <b>`README.md`</b>) is a text document that introduces and explains a project. It is typically the first file a user or contributor will see when they visit a repository on platforms like GitHub or GitLab. Its primary purpose is to provide an overview, instructions, and context for your code.
+            A <b className='text-white'>README</b> file (usually <b>README.md</b>) is a text document that introduces and explains a project. It is typically the first file a user or contributor will see when they visit a repository on platforms like GitHub or GitLab. Its primary purpose is to provide an overview, instructions, and context for your code.
           </p>
           <p className="text-[#E3Eff0]">
             Think of a README as your project's welcome mat and instruction manual combined. It answers the fundamental questions that anyone encountering your work might have:
