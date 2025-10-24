@@ -104,7 +104,7 @@ const InputField = ({ label, name, value, onChange, placeholder, type = 'text', 
         {showDelete && (
           <button
             onClick={onDelete}
-            className="text-xs px-2 py-1 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-200"
+            className="text-xs px-2 py-1 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 active:scale-95"
           >
             Delete
           </button>
@@ -117,7 +117,7 @@ const InputField = ({ label, name, value, onChange, placeholder, type = 'text', 
           onChange={onChange}
           placeholder={placeholder}
           rows={rows}
-          className="w-full p-2 border border-green-700 rounded-md focus:ring-green-500 focus:border-green-500 transition-all duration-200 resize-none bg-green-900 text-white"
+          className="w-full p-2 border border-green-700 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 resize-none bg-green-900 text-white"
         />
       ) : (
         <input
@@ -126,7 +126,7 @@ const InputField = ({ label, name, value, onChange, placeholder, type = 'text', 
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="w-full p-2 border border-green-700 rounded-md focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-green-900 text-white"
+          className="w-full p-2 border border-green-700 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-green-900 text-white"
         />
       )}
     </div>
@@ -292,6 +292,20 @@ ${customContent}
   return (
     <div className="min-h-screen bg-[#1F3A30] text-gray-200 flex flex-col items-center justify-center p-4 font-sans">
       <style>{`
+        .preview-scrollbar::-webkit-scrollbar { // Targetting scrollbar
+          width: 8px;
+        }
+        .preview-scrollbar::-webkit-scrollbar-track {
+          background: #025a4d;
+          border-radius: 10px;
+        }
+        .preview-scrollbar::-webkit-scrollbar-thumb {
+          background: #037764;
+          border-radius: 10px;
+        }
+        .preview-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #058f79;
+        }
         .markdown-body h1 {
           font-size: 2.5rem !important;
           font-weight: bold;
@@ -327,8 +341,26 @@ ${customContent}
         .hover\\:scale-\\[1\\.005\\]:hover {
             transform: scale(1.005);
         }
+        .transition-all {
+            transition-property: all;
+            transition-duration: 300ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .main-card-hover:hover { // Main Card Hover Effect
+            transform: scale(1.005);
+            filter: brightness(1.05); // Subtle brightness boost
+        }
+        
+        /* Modal Enter Animation (New) */
+        @keyframes modal-enter-kf { // Keyframes for the modal
+          0% { transform: scale(0.95); opacity: 0; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-modal-enter { // Class applied to the modal inner div
+            animation: modal-enter-kf 0.3s forwards;
+        }
       `}</style>
-      <div className="w-full max-w-7xl mx-auto rounded-xl shadow-2xl bg-[#037764] px-4 py-8 md:p-12 transform transition-all duration-300 hover:scale-[1.005]">
+      <div className="w-full max-w-7xl mx-auto rounded-xl shadow-2xl bg-[#037764] px-4 py-8 md:p-12 transform transition-all duration-300 hover:scale-[1.005] main-card-hover">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-[#CCFF00]">README Generator</h1>
           <p className="mt-2 text-lg text-[#E0E0E0]">Effortlessly create professional README files for your projects.</p>
@@ -440,8 +472,8 @@ ${customContent}
           </div>
 
           {/* Preview Section */}
-          <div className="md:w-1/2 p-6 rounded-xl bg-[#025a4d] shadow-inner overflow-y-auto max-h-screen">
-            <div className="flex justify-between items-center mb-6">
+          <div className="md:w-1/2 p-6 rounded-xl bg-[#025a4d] shadow-inner overflow-y-auto max-h-[80vh] preview-scrollbar">
+            <div className="flex justify-between items-center mb-6 ">
               <h2 className="text-2xl font-bold text-white">Markdown Preview</h2>
               <div className="flex space-x-2">
                 <button
