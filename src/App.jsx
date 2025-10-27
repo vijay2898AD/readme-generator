@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-// A template for the generated README content.
+
 const markdownTemplates = {
   titleDescription: (title, description) => `
 # ${title || 'Project Title'}
